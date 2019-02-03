@@ -97,11 +97,11 @@ Run the following command:
 `$ make clean`  
 
 ## OS Compatibility
-Unix Solaris 10 - pass  
-CentOS 7 - pass  
-Raspbian - pass  
-macOS Mojave - limited pass  
+| | **Architecture** | **Master** |
+|---|:---:|:---:|
+| **Unix Solaris 10** | x86_64 |![Build Status](https://ci.swift.org/job/oss-swift-incremental-RA-osx/lastCompletedBuild/badge/icon) |
+| **Ubuntu 18.04** | x86_64 | ![Build Status](https://ci.swift.org/job/oss-swift-incremental-RA-linux-ubuntu-18_04/lastCompletedBuild/badge/icon)|
+| **CentOS 7** | x86_64 | ![Build Status](https://ci.swift.org/job/oss-swift-incremental-RA-linux-ubuntu-18_04/lastCompletedBuild/badge/icon)|
 
 ## TODO
 - Spread the code into a few other source files (maybe?)
-- That's comment the code a little
