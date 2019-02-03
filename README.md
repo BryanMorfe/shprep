@@ -6,6 +6,7 @@ Last update: Feb 2, 2019
 
 ## Index
 - [Description](https://github.com/BryanMorfe/shprep/blob/master/README.md#description)
+- [License](https://github.com/BryanMorfe/shprep/blob/master/README.md#license)
 - [Examples](https://github.com/BryanMorfe/shprep/blob/master/README.md#examples)
 - [Installation](https://github.com/BryanMorfe/shprep/blob/master/README.md#installation)
 - [OS Compatibility](https://github.com/BryanMorfe/shprep/blob/master/README.md#os-compatibility)
@@ -13,6 +14,29 @@ Last update: Feb 2, 2019
 
 ## Description
 Unix/Linux migration tool -- Prepares shadow file for migration in incompatible systems.  
+
+## License
+MIT License
+
+Copyright (c) 2019 Evoluti, Inc. (Bryan Morfe CEO)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ## Examples
 In this hypothetical example I will be migrating from a Unix Solaris 10 system (IP Address 192.168.1.10) to linux Ubuntu 16 (IP Address 192.168.1.15).
