@@ -5,11 +5,11 @@ v0.1.0 -- First Beta Release
 Last update: Feb 2, 2019  
 
 ## Index
-- [Description](https://github.com/BryanMorfe/shprep/README.md#description)
-- [Examples](https://github.com/BryanMorfe/shprep/README.md#examples)
-- [Installation](https://github.com/BryanMorfe/shprep/README.md#installation)
-- [OS Compatibility](https://github.com/BryanMorfe/shprep/README.md#os-compatibility)
-- [TODO](https://github.com/BryanMorfe/shprep/README.md#todo)
+- [Description](https://github.com/BryanMorfe/shprep/blob/master/README.md#description)
+- [Examples](https://github.com/BryanMorfe/shprep/blob/master/README.md#examples)
+- [Installation](https://github.com/BryanMorfe/shprep/blob/master/README.md#installation)
+- [OS Compatibility](https://github.com/BryanMorfe/shprep/blob/master/README.md#os-compatibility)
+- [TODO](https://github.com/BryanMorfe/shprep/blob/master/README.md#todo)
 
 ## Description
 Unix/Linux migration tool -- Prepares shadow file for migration in incompatible systems.  
