@@ -13,7 +13,9 @@ Last update: Feb 2, 2019
 - [TODO](https://github.com/BryanMorfe/shprep/blob/master/README.md#todo)
 
 ## Description
-Unix/Linux migration tool -- Prepares shadow file for migration in incompatible systems.  
+Unix/Linux migration program -- Prepares shadow file for migration in incompatible systems.  
+This program was created between a migration from Unix Solaris 10 to Ubuntu (details are confidential), and since the password encryption algorithms are different, something had to be done to transfer thousands of user accounts without compromising the functionality of the system.  
+This program made everything much easier, and now if you need to do the same, you can simply use this program to speed up the process.
 
 ## License
 MIT License
