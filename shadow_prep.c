@@ -19,45 +19,73 @@
 #include <string.h>
 #include <time.h>
 
-#define GOT_SHADOW_FILE     0x01
-#define GOT_DEF_PASSWD      0x02
-#define GOT_CHG_PASSWD      0x04
-#define GOT_OUT_FPATH       0x08
-#define GOT_RAND_SALT       0x10
-#define GOT_HASH_ALG        0x20
+#define GOT_SHADOW_FILE     0x01        /* Set this bit if shadow file/path was specified */
+#define GOT_DEF_PASSWD      0x02        /* Set this bit if default passwd was specified */
+#define GOT_CHG_PASSWD      0x04        /* Set this bit if change pass upon login was specified */
+#define GOT_OUT_FPATH       0x08        /* Set this bit if output file/path was specified */
+#define GOT_RAND_SALT       0x10        /* Set this bit if random salt was requested */
+#define GOT_HASH_ALG        0x20        /* Set this bit if hashing algorithm was specified */
 
+/* Used to set the hash_alg global variable to keep track of alg used */
 #define HASH_MD5_VAL        1
 #define HASH_BF1_VAL        2
 #define HASH_BF2_VAL        3
 #define HASH_SHA256_VAL     4
 #define HASH_SHA512_VAL     5
 
+/* Used to parse input from user (refer to get_input function) */
 #define HASH_MD5            "md5"
 #define HASH_BF1            "blowfish"
 #define HASH_BF2            "sksblowfish"
 #define HASH_SHA256         "sha256"
 #define HASH_SHA512         "sha512"
 
+/* Used to process hashing algorithm with crypt function (refer to get_input function) */
 #define HASH_MD5_CD         "$1$"
 #define HASH_BF1_CD         "$2$"
 #define HASH_BF2_CD         "$2b$"
 #define HASH_SHA256_CD      "$5$"
 #define HASH_SHA512_CD      "$6$"
 
+/* Used to process hashing algorithm with crypt function (refer to get_input function) */
 #define PASSWD_FIELD        1
 #define PASSWD_CHG_FIELD    2
 
-#define DEF_SALT            "$6$hxIzLpw"    /* Use sha-512 for hashing + salt */
+/* Use sha-512 for hashing and default salt (if no random is requested) */
+#define DEF_SALT            "$6$hxIzLpw"
 
+/* Get inputs from command line:
+ * reads options
+ * if invalid option is passed, quits
+ * if invalid argument is passed, quits
+ * if help requested, displays help menu and quits
+ * if version requested, displays version menu and quits
+ * validates further errors
+ */
 void get_input(int argc, char *argv[], char *shadow_file_path, char *def_passwd, char *out_path);
+
+/* Processes shadow file and create a new version as needed
+ * if random salt is requested, generates random salt
+ * sets the default password in its corresponding field
+ * if change upon login is requested, it is processed
+ */
 void process_shadow_file(char *shadow_file_path, char *def_passwd, char *out_path);
+
+/* Helper function to peek character from a file stream */
 int fpeekc(FILE *stream);
+
+/* Displays the help menu */
 void display_help();
+
+/* Displays the version */
 void display_ver();
+
+/* Generates random salt and assigns it to salt variable */
 void rand_salt(int len, char *salt);
 
-int input_obtained = 0;
-int hash_alg = 0;
+/* Globals */
+int input_obtained = 0;     /* Keeps track of passed options */
+int hash_alg = 0;           /* Keeps track of chosen hashing algorithm */
 
 int main(int argc, char *argv[])
 {
@@ -73,6 +101,9 @@ int main(int argc, char *argv[])
     return 0;
 }
 
+/**********************************************************************************************
+ ******************                      get_input                        *********************
+ **********************************************************************************************/
 void get_input(int argc, char *argv[], char *shadow_file_path, char *def_passwd, char *out_path)
 {
     int i;
@@ -177,6 +208,9 @@ void get_input(int argc, char *argv[], char *shadow_file_path, char *def_passwd,
     
 }
 
+/**********************************************************************************************
+ ******************                 process_shadow_file                   *********************
+ **********************************************************************************************/
 void process_shadow_file(char *shadow_file_path, char *def_passwd, char *out_path)
 {
     FILE *sfh = fopen(shadow_file_path, "r");
@@ -242,6 +276,9 @@ void process_shadow_file(char *shadow_file_path, char *def_passwd, char *out_pat
     printf("\033[1;32m[*]\033[0m Cleaning up...\n");
 }
 
+/**********************************************************************************************
+ ******************                      fpeekc                           *********************
+ **********************************************************************************************/
 int fpeekc(FILE *stream)
 {
     int ch = fgetc(stream);
@@ -249,6 +286,9 @@ int fpeekc(FILE *stream)
     return ch;
 }
 
+/**********************************************************************************************
+ ******************                     display_help                      *********************
+ **********************************************************************************************/
 void display_help()
 {
     printf("Usage: shprep [Options]\n");
@@ -266,6 +306,9 @@ void display_help()
     printf("\t\tNote: Users without a password or with no login will stay that way.\n");
 }
 
+/**********************************************************************************************
+ ******************                      display_ver                      *********************
+ **********************************************************************************************/
 void display_ver()
 {
     printf("shprep v0.1.0\n");
@@ -273,6 +316,9 @@ void display_ver()
     printf("Copyright (c) 2019 Evoluti Inc.\n");
 }
 
+/**********************************************************************************************
+ ******************                      rand_salt                        *********************
+ **********************************************************************************************/
 void rand_salt(int len, char *salt)
 {
     static const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
