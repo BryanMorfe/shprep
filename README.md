@@ -13,7 +13,9 @@ Last update: Feb 2, 2019
 - [TODO](https://github.com/BryanMorfe/shprep/blob/master/README.md#todo)
 
 ## Description
-Unix/Linux migration tool -- Prepares shadow file for migration in incompatible systems.  
+Unix/Linux migration program -- Prepares shadow file for migration in incompatible systems.  
+This program was created between a migration from Unix Solaris 10 to Ubuntu (details are confidential), and since the password encryption algorithms are different, something had to be done to transfer thousands of user accounts without compromising the functionality of the system.  
+This program made everything much easier, and now if you need to do the same, you can simply use this program to speed up the process.
 
 ## License
 MIT License
@@ -95,11 +97,11 @@ Run the following command:
 `$ make clean`  
 
 ## OS Compatibility
-Unix Solaris 10 - pass  
-CentOS 7 - pass  
-Raspbian - pass  
-macOS Mojave - limited pass  
+| | **Architecture** | **Master** |
+|---|:---:|:---:|
+| **Unix Solaris 10** | x86_64 |![Build Status](https://ci.swift.org/job/oss-swift-incremental-RA-osx/lastCompletedBuild/badge/icon) |
+| **Ubuntu 18.04** | x86_64 | ![Build Status](https://ci.swift.org/job/oss-swift-incremental-RA-osx/lastCompletedBuild/badge/icon)|
+| **CentOS 7** | x86_64 | ![Build Status](https://ci.swift.org/job/oss-swift-incremental-RA-osx/lastCompletedBuild/badge/icon)|
 
 ## TODO
 - Spread the code into a few other source files (maybe?)
-- That's comment the code a little
