@@ -17,6 +17,9 @@
  *    was not overwritten when user's password was changed.
  *  - The password change field is not left unmodified for user accounts
  *    with no password.
+ *
+ * For more information on updates, visit the github page for this project at
+ * https://github.com/bryanmorfe/shprep and visit the updates file.
  */
 
 #include <stdio.h>
