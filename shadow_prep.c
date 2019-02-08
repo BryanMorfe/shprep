@@ -1,5 +1,5 @@
 /*
- * shprep Version 0.1.1
+ * shprep Version 0.1.2
  * shprep is a simple unix/linux utility that processes shadow files
  * for purposes of migration. If two systems use incompatible encryptions
  * or hashing for the storage of user passwords, one cannot simply transfer
@@ -12,11 +12,10 @@
  * transfer the shadow file from the system you are migrating from to the system
  * you are migrating to.
  *
- * New to minor update 1 (0.1.1)
- *  - Fixes a bug where the first digit of the password change field
- *    was not overwritten when user's password was changed.
- *  - The password change field is not left unmodified for user accounts
- *    with no password.
+ * New to minor update 1 (0.1.2)
+ *  - Used autotools to generate configure and makefile to avoid linking errors.
+ *    This fixes the problem where some system needed to link libcrypt while
+ *    others did not.
  *
  * For more information on updates, visit the github page for this project at
  * https://github.com/bryanmorfe/shprep and visit the updates file.
@@ -330,7 +329,7 @@ void display_help()
  **********************************************************************************************/
 void display_ver()
 {
-    printf("shprep v0.1.1\n");
+    printf("shprep v0.1.2\n");
     printf("Build Date: February 8, 2019\n");
     printf("Copyright (c) 2019 Evoluti Inc.\n");
 }
