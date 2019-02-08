@@ -100,8 +100,10 @@ Run the following command:
 `$ make`  
 
 **Attention v0.1.1 and below:**  
-If `make` does not compile and you get an error of `undefined reference to crypt` then you need to manually compile and link `libcrypt` by running this command:  
-`gcc shadow_prep.c -lcrypt -o shprep`  
+If `make` does not compile and you get an error of `undefined reference to crypt` then you need to manually compile and link `libcrypt` by running this command: 
+  
+`$ gcc shadow_prep.c -lcrypt -o shprep`  
+  
 After that command is ran, proceed to next step.  
 
 ### Step 3: Install (Optional)
@@ -115,9 +117,9 @@ Run the following command:
 ## OS Compatibility
 | | **Architecture** | **Master** |
 |---|:---:|:---:|
-| **Unix Solaris 10** | x86_64 |![Build Status](https://ci.swift.org/job/oss-swift-incremental-RA-osx/lastCompletedBuild/badge/icon) |
-| **Ubuntu 18.04** | x86_64 | ![Build Status](https://ci.swift.org/job/oss-swift-incremental-RA-osx/lastCompletedBuild/badge/icon)|
-| **CentOS 7** | x86_64 | ![Build Status](https://ci.swift.org/job/oss-swift-incremental-RA-osx/lastCompletedBuild/badge/icon)|
+| **Unix Solaris 10** | x86_64 | **Passed** |
+| **Ubuntu 18.04** | x86_64 | **Passed** |
+| **CentOS 7** | x86_64 | **Passed** |
 
 ## TODO
 - Spread the code into a few other source files (maybe?)
