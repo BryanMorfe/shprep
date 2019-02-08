@@ -1,5 +1,5 @@
 /*
- * shprep Version 0.1.0
+ * shprep Version 0.1.1
  * shprep is a simple unix/linux utility that processes shadow files
  * for purposes of migration. If two systems use incompatible encryptions
  * or hashing for the storage of user passwords, one cannot simply transfer
@@ -11,6 +11,12 @@
  * Note: In order to make sure that the encryption algorithm is correct, you must
  * transfer the shadow file from the system you are migrating from to the system
  * you are migrating to.
+ *
+ * New to minor update 1 (0.1.1)
+ *  - Fixes a bug where the first digit of the password change field
+ *    was not overwritten when user's password was changed.
+ *  - The password change field is not left unmodified for user accounts
+ *    with no password.
  */
 
 #include <stdio.h>
@@ -231,6 +237,7 @@ void process_shadow_file(char *shadow_file_path, char *def_passwd, char *out_pat
 
     int ch;
     int field_num = 0;
+    int normal_user = 1;
     
     printf("\033[1;33m[+]\033[0m Generating processed shadow file...\n");
     while ((ch = fgetc(sfh)) != EOF)
@@ -240,28 +247,37 @@ void process_shadow_file(char *shadow_file_path, char *def_passwd, char *out_pat
         if (ch == ':')
             field_num++;
         else if (ch == '\n')
+        {
             field_num = 0;
+            normal_user = 1;
+        }
         
         /* Change the users with a password to the default password */
-        int peeked_c = fpeekc(sfh);
-        if (field_num == PASSWD_FIELD && peeked_c != '*' && peeked_c != '!' && peeked_c != ':')
+        if (field_num == PASSWD_FIELD)
         {
-            char salt[11];
-            
-            if ((input_obtained & GOT_RAND_SALT) == GOT_RAND_SALT)
-                rand_salt(10, salt);
+            int peeked_c = fpeekc(sfh);
+            if (peeked_c != '*' && peeked_c != '!' && peeked_c != ':')
+            {
+                char salt[11];
+                
+                if ((input_obtained & GOT_RAND_SALT) == GOT_RAND_SALT)
+                    rand_salt(10, salt);
+                else
+                    strcpy(salt, DEF_SALT);
+                
+                fprintf(sfh_prep, "%s", crypt(def_passwd, salt));
+                
+                while ((ch = fgetc(sfh)) != ':');
+                field_num++;
+                if (!normal_user)
+                    fputc(':', sfh_prep);
+            }
             else
-                strcpy(salt, DEF_SALT);
-            
-            fprintf(sfh_prep, "%s", crypt(def_passwd, salt));
-            
-            while ((ch = fgetc(sfh)) != ':');
-            field_num++;
-            fputc(':', sfh_prep);
+                normal_user = 0;
         }
-        else if (field_num == PASSWD_CHG_FIELD && (input_obtained & GOT_CHG_PASSWD) == GOT_CHG_PASSWD)
+        else if (field_num == PASSWD_CHG_FIELD && (input_obtained & GOT_CHG_PASSWD) == GOT_CHG_PASSWD && normal_user)
         {
-            fprintf(sfh_prep, "0"); /* Indicate passwd should be changed next time they log in */
+            fputc('0', sfh_prep); /* Indicate passwd should be changed next time they log in */
             while ((ch = fgetc(sfh)) != ':');
             field_num++;
             fputc(':', sfh_prep);
@@ -311,8 +327,8 @@ void display_help()
  **********************************************************************************************/
 void display_ver()
 {
-    printf("shprep v0.1.0\n");
-    printf("Build Date: February 2, 2019\n");
+    printf("shprep v0.1.1\n");
+    printf("Build Date: February 8, 2019\n");
     printf("Copyright (c) 2019 Evoluti Inc.\n");
 }
 
