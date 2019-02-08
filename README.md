@@ -1,13 +1,15 @@
 # shprep
 
 ## Meta
-v0.1.0 -- First Beta Release  
-Last update: Feb 2, 2019  
+v0.1.1
+Last update: Feb 8, 2019  
+For information on the updates, known bugs, fixes, and other information, visit the [UPDATES](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md) document.  
 
 ## Index
 - [Description](https://github.com/BryanMorfe/shprep/blob/master/README.md#description)
 - [License](https://github.com/BryanMorfe/shprep/blob/master/README.md#license)
 - [Examples](https://github.com/BryanMorfe/shprep/blob/master/README.md#examples)
+- [Dependencies](https://github.com/BryanMorfe/shprep/blob/master/README.md#dependencies)
 - [Installation](https://github.com/BryanMorfe/shprep/blob/master/README.md#installation)
 - [OS Compatibility](https://github.com/BryanMorfe/shprep/blob/master/README.md#os-compatibility)
 - [TODO](https://github.com/BryanMorfe/shprep/blob/master/README.md#todo)
@@ -70,6 +72,15 @@ After that command, the generated shadow file will have default passwords for al
 #### Disclaimer
 I am not responsible for any corrupted shadow files produced by this program. **ALWAYS** make a backup of the original shadow file before modifying it with this or any other software.  
 
+## Dependencies
+In order to compile, install, and run shprep, you need to have the following programs/utilities in your Unix/Linux/macOS system:
+- make
+- gcc
+
+### Installation
+In Debian-like distributions of linux, you may run the following command:  
+`$ sudo apt-get install make gcc`  
+
 ## Installation
 
 ### Step 1: Get Source Code
@@ -87,6 +98,11 @@ Open terminal and run the following command:
 
 Run the following command:  
 `$ make`  
+
+**Attention v0.1.1 and below:**  
+If `make` does not compile and you get an error of `undefined reference to crypt` then you need to manually compile and link `libcrypt` by running this command:  
+`gcc shadow_prep.c -lcrypt -o shprep`  
+After that command is ran, proceed to next step.  
 
 ### Step 3: Install (Optional)
 Run the following command:  
