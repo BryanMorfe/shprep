@@ -100,12 +100,11 @@ You can also download the compressed (tarred) version by running the following c
 If you used [Option 1](https://github.com/BryanMorfe/shprep/blob/master/README.md#option-1), you may step to Step 2.  
   
 If you used [Option 2](https://github.com/BryanMorfe/shprep/blob/master/README.md#option-2), then simply run this command:  
-  
 `$ tar -xvf shprep-0.1.2.tar.gz`  
   
 This will decompress the tar into a directory called `shprep-0.1.2`.  
   
-If you used [Option 2](https://github.com/BryanMorfe/shprep/blob/master/README.md#option-1), then you must go to the directory where the downloaded tar is and decompress, either with graphical user interface, or by using terminal and running the above command.  
+If you used [Option 3](https://github.com/BryanMorfe/shprep/blob/master/README.md#option-3), then you must go to the directory where the downloaded tar is and decompress, either with graphical user interface, or by using terminal and running the above command.  
 
 ### Step 2: Compile
 
