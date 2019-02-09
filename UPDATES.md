@@ -9,10 +9,10 @@ This file contains metadata about the updates timeline of shprep.
 		- [Known Bugs](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#known-bugs)
 	- [0.1.1](https://github.com/BryanMorfe/shprep/blob/master/README.md#011)
 		- [New Features/Fixes](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#new-featuresfixes)
-		- [Known Bugs](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#known-bugs2)
+		- [Known Bugs](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#known-bugs-1)
 	- [0.1.2](https://github.com/BryanMorfe/shprep/blob/master/README.md#012)
-		- [New Features/Fixes](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#new-featuresfixes2)
-		- [Known Bugs](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#known-bugs3)
+		- [New Features/Fixes](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#new-featuresfixes-1)
+		- [Known Bugs](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#known-bugs-2)
 
 ## Updates
 
