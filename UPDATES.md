@@ -10,6 +10,9 @@ This file contains metadata about the updates timeline of shprep.
 	- [0.1.1](https://github.com/BryanMorfe/shprep/blob/master/README.md#011)
 		- [New Features/Fixes](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#new-featuresfixes)
 		- [Known Bugs](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#known-bugs2)
+	- [0.1.2](https://github.com/BryanMorfe/shprep/blob/master/README.md#012)
+		- [New Features/Fixes](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#new-featuresfixes2)
+		- [Known Bugs](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#known-bugs3)
 
 ## Updates
 
@@ -31,5 +34,15 @@ This file contains metadata about the updates timeline of shprep.
 - Password change field is left unmodified on user accounts with no password or login disabled.
 
 #### Known Bugs
-**As of February 8, 2019:**  
-- None 
+**As of February 7, 2019:**  
+- Makefile provided no option link the appropriate libraries (`-lcrypt`), should a particular system required it.
+
+### 0.1.2
+**Build Date: February 9, 2019**
+
+#### New Features/Fixes
+- Used autotools to create proper configure and installation scripts.
+
+#### Known Bugs
+**As of February 9, 2019:**  
+- None.
