@@ -97,7 +97,7 @@ You can also download the compressed (tarred) version by running the following c
 [Download](http://bryanmorfe.com/packages/shprep-0.1.2.tar.gz) the tarred version.  
 
 #### Decompress
-If you used [Option 1](https://github.com/BryanMorfe/shprep/blob/master/README.md#option-1), you may step to Step 2.  
+If you used [Option 1](https://github.com/BryanMorfe/shprep/blob/master/README.md#option-1), you may skip to step to Step 2.  
   
 If you used [Option 2](https://github.com/BryanMorfe/shprep/blob/master/README.md#option-2), then simply run this command:  
 `$ tar -xvf shprep-0.1.2.tar.gz`  
@@ -112,7 +112,7 @@ Run the following commands:
 `$ ./configure`  
 `$ make`  
   
-If the above command gives you an error `undefined reference to 'crypt'` it's because your System requires you to link the `libcrypt` library. To do so run this version of the `make` command:  
+If the above `make` command gives you an error `undefined reference to 'crypt'` it's because your System requires you to link the `libcrypt` library. To do so run this version of the `make` command:  
 `$ make LIBS=-lcrypt`  
   
 This should get rid of the problem.  
