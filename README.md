@@ -1,8 +1,8 @@
 # shprep
 
 ## Meta
-v0.1.1
-Last update: Feb 8, 2019  
+v0.1.2
+Last update: Feb 9, 2019  
 For information on the updates, known bugs, fixes, and other information, visit the [UPDATES](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md) document.  
 
 ## Index
@@ -83,33 +83,45 @@ In Debian-like distributions of linux, you may run the following command:
 
 ## Installation
 
-### Step 1: Get Source Code
+### Step 1: Download
 
-#### Manually
+#### Option 1
 Open terminal and run the following command:  
-`$ git clone https://github.com/BryanMorfe/shprep`
+`$ git clone https://github.com/BryanMorfe/shprep`  
+  
+#### Option 2
+You can also download the compressed (tarred) version by running the following command:  
+`$ wget http://bryanmorfe.com/packages/shprep-0.1.2.tar.gz`  
+  
+#### Option 3
+[Download](http://bryanmorfe.com/packages/shprep-0.1.2.tar.gz) the tarred version.  
 
-#### Download Link
-[Download](https://github.com/BryanMorfe/shprep/archive/master.zip) the zip version and decompress.  
+#### Decompress
+If you used [Option 1](https://github.com/BryanMorfe/shprep/blob/master/README.md#option-1), you may step to Step 2.  
+  
+If you used [Option 2](https://github.com/BryanMorfe/shprep/blob/master/README.md#option-2), then simply run this command:  
+  
+`$ tar -xvf shprep-0.1.2.tar.gz`  
+  
+This will decompress the tar into a directory called `shprep-0.1.2`.  
+  
+If you used [Option 2](https://github.com/BryanMorfe/shprep/blob/master/README.md#option-1), then you must go to the directory where the downloaded tar is and decompress, either with graphical user interface, or by using terminal and running the above command.  
 
 ### Step 2: Compile
 
-**Note: If a compressed file was downloaded, decompress and then follow instructions here.**
-
-Run the following command:  
+Run the following commands:  
+`$ ./configure`  
 `$ make`  
-
-**Attention v0.1.1 and below:**  
-If `make` does not compile and you get an error of `undefined reference to crypt` then you need to manually compile and link `libcrypt` by running this command: 
   
-`$ gcc shadow_prep.c -lcrypt -o shprep`  
+If the above command gives you an error `undefined reference to 'crypt'` it's because your System requires you to link the `libcrypt` library. To do so run this version of the `make` command:  
+`$ make LIBS=-lcrypt`  
   
-After that command is ran, proceed to next step.  
+This should get rid of the problem.  
 
 ### Step 3: Install (Optional)
 Run the following command:  
 `$ make install`  
-
+  
 ### Step 4: Clean (Optional)
 Run the following command:  
 `$ make clean`  
