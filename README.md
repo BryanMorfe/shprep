@@ -1,8 +1,8 @@
 # shprep
 
 ## Meta
-v0.1.2
-Last update: Feb 9, 2019  
+v0.1.3
+Last update: April 15, 2019  
 For information on the updates, known bugs, fixes, and other information, visit the [UPDATES](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md) document.  
 
 ## Index
@@ -91,18 +91,18 @@ Open terminal and run the following command:
   
 #### Option 2
 You can also download the compressed (tarred) version by running the following command:  
-`$ wget http://bryanmorfe.com/packages/shprep-0.1.2.tar.gz`  
+`$ wget http://bryanmorfe.com/packages/shprep-latest.tar.gz`  
   
 #### Option 3
-[Download](http://bryanmorfe.com/packages/shprep-0.1.2.tar.gz) the tarred version.  
+[Download](http://bryanmorfe.com/packages/shprep-latest.tar.gz) the tarred version.  
 
 #### Decompress
 If you used [Option 1](https://github.com/BryanMorfe/shprep/blob/master/README.md#option-1), you may skip to step to Step 2.  
   
 If you used [Option 2](https://github.com/BryanMorfe/shprep/blob/master/README.md#option-2), then simply run this command:  
-`$ tar -xvf shprep-0.1.2.tar.gz`  
+`$ tar -xvf shprep-latest.tar.gz`  
   
-This will decompress the tar into a directory called `shprep-0.1.2`.  
+This will decompress the tar into a directory called `shprep-latest`.  
   
 If you used [Option 3](https://github.com/BryanMorfe/shprep/blob/master/README.md#option-3), then you must go to the directory where the downloaded tar is and decompress, either with graphical user interface, or by using terminal and running the above command.  
 
