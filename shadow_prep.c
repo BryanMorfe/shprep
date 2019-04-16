@@ -1,5 +1,5 @@
 /*
- * shprep Version 0.1.2
+ * shprep Version 0.1.3
  * shprep is a simple unix/linux utility that processes shadow files
  * for purposes of migration. If two systems use incompatible encryptions
  * or hashing for the storage of user passwords, one cannot simply transfer
@@ -12,10 +12,8 @@
  * transfer the shadow file from the system you are migrating from to the system
  * you are migrating to.
  *
- * New to minor update 1 (0.1.2)
- *  - Used autotools to generate configure and makefile to avoid linking errors.
- *    This fixes the problem where some system needed to link libcrypt while
- *    others did not.
+ * New to minor update 1 (0.1.3)
+ *  - Fixed bug that caused the field separator ":" to be omitted in some cases
  *
  * For more information on updates, visit the github page for this project at
  * https://github.com/bryanmorfe/shprep and visit the updates file.
@@ -270,9 +268,7 @@ void process_shadow_file(char *shadow_file_path, char *def_passwd, char *out_pat
                 fprintf(sfh_prep, "%s", crypt(def_passwd, salt));
                 
                 while ((ch = fgetc(sfh)) != ':');
-                field_num++;
-                if (!normal_user)
-                    fputc(':', sfh_prep);
+                ungetc(':', sfh);
             }
             else
                 normal_user = 0;
@@ -281,8 +277,7 @@ void process_shadow_file(char *shadow_file_path, char *def_passwd, char *out_pat
         {
             fputc('0', sfh_prep); /* Indicate passwd should be changed next time they log in */
             while ((ch = fgetc(sfh)) != ':');
-            field_num++;
-            fputc(':', sfh_prep);
+            ungetc(':', sfh);
         }
     }
     
@@ -329,8 +324,8 @@ void display_help()
  **********************************************************************************************/
 void display_ver()
 {
-    printf("shprep v0.1.2\n");
-    printf("Build Date: February 8, 2019\n");
+    printf("shprep v0.1.3\n");
+    printf("Build Date: April 15, 2019\n");
     printf("Copyright (c) 2019 Evoluti Inc.\n");
 }
 
