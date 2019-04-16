@@ -7,12 +7,15 @@ This file contains metadata about the updates timeline of shprep.
 - [Updates](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#updates)
 	- [0.1.0](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#010)
 		- [Known Bugs](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#known-bugs)
-	- [0.1.1](https://github.com/BryanMorfe/shprep/blob/master/README.md#011)
+	- [0.1.1](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#011)
 		- [New Features/Fixes](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#new-featuresfixes)
 		- [Known Bugs](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#known-bugs-1)
-	- [0.1.2](https://github.com/BryanMorfe/shprep/blob/master/README.md#012)
+	- [0.1.2](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#012)
 		- [New Features/Fixes](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#new-featuresfixes-1)
 		- [Known Bugs](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#known-bugs-2)
+	- [0.1.3](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#013)
+		- [New Features/Fixes](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#new-featuresfixes-2)
+		- [Known Bugs](https://github.com/BryanMorfe/shprep/blob/master/UPDATES.md#known-bugs-3)
 
 ## Updates
 
@@ -44,5 +47,15 @@ This file contains metadata about the updates timeline of shprep.
 - Used autotools to create proper configure and installation scripts.
 
 #### Known Bugs
-**As of February 9, 2019:**  
+**As of April 13, 2019:**  
+- Sometimes the field separators ":" is omitted. This version is rendered unusable and is not recommended.
+
+### 0.1.3
+**Build Date: April 15, 2019**
+
+#### New Features/Fixes
+- Fixes a bug that would cause the field separator ":" to be omitted in some cases.
+
+#### Known Bugs
+**As of April 15, 2019:**  
 - None.
